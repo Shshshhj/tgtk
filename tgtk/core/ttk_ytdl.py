@@ -367,14 +367,14 @@ async def handle_ytdl_playlist(e: MessageLike) -> None:
         suid = str(time.time()).replace(".","")
 
         for i in ["144","240","360","480","720","1080","1440","2160"]:
-            keybr.append([KeyboardButtonCallback(text=f"{i}p All videos",data=f"ytdlplaylist|{i}|{suid}|{e.sender_id}")])
+            keybr.append([KeyboardButtonCallback(text=f"{i}p 📹All videos",data=f"ytdlplaylist|{i}|{suid}|{e.sender_id}")])
 
-        keybr.append([KeyboardButtonCallback(text=f"Best All videos",data=f"ytdlplaylist|best|{suid}|{e.sender_id}")])
+        keybr.append([KeyboardButtonCallback(text=f"Best 📹All videos",data=f"ytdlplaylist|best|{suid}|{e.sender_id}")])
         
         
-        keybr.append([KeyboardButtonCallback(text="best all audio only. [340k]",data=f"ytdlplaylist|320k|{suid}|{e.sender_id}")])
-        keybr.append([KeyboardButtonCallback(text="medium all audio only. [128k]",data=f"ytdlplaylist|128k|{suid}|{e.sender_id}")])
-        keybr.append([KeyboardButtonCallback(text="worst all audio only. [64k]",data=f"ytdlplaylist|64k|{suid}|{e.sender_id}")])
+        keybr.append([KeyboardButtonCallback(text="best all 🔉audio only. [340k]",data=f"ytdlplaylist|320k|{suid}|{e.sender_id}")])
+        keybr.append([KeyboardButtonCallback(text="medium all 🔉audio only. [128k]",data=f"ytdlplaylist|128k|{suid}|{e.sender_id}")])
+        keybr.append([KeyboardButtonCallback(text="worst all 🔉audio only. [64k]",data=f"ytdlplaylist|64k|{suid}|{e.sender_id}")])
 
         await msg.edit(f"found {entlen} videos in the playlist.",buttons=keybr) 
 

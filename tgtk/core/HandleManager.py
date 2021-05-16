@@ -218,7 +218,7 @@ async def handle_leech_command(e):
     else:
         rclone = False
         tsp = time.time()
-        buts = [[KeyboardButtonCallback("to telegram",data=f"leechselect tg {tsp}")]]
+        buts = [[KeyboardButtonCallback("To telegram",data=f"leechselect tg {tsp}")]]
         if await get_config() is not None:
             buts.append(
                 [KeyboardButtonCallback("to drive",data=f"leechselect drive {tsp}")]
@@ -227,10 +227,10 @@ async def handle_leech_command(e):
         # cuz at any time there are 10-20 callbacks linked for leeching XD
            
         buts.append(
-                [KeyboardButtonCallback("upload in a zip.[Toggle]", data=f"leechzip toggle {tsp}")]
+                [KeyboardButtonCallback("Upload in a zip.[Toggle]", data=f"leechzip toggle {tsp}")]
         )
         buts.append(
-                [KeyboardButtonCallback("extract from archive.[Toggle]", data=f"leechzipex toggleex {tsp}")]
+                [KeyboardButtonCallback("Extract from archive.[Toggle]", data=f"leechzipex toggleex {tsp}")]
         )
         
         conf_mes = await e.reply(f"<b>first click if you want to zip the contents or extract as an archive (only one will work at a time) then, </b>\n<b>choose where to upload your files: </b>\nthe files will be uploaded to default destination after {get_val('DEFAULT_TIMEOUT')} sec of no action by user.\n\n supported archives to extract are: .zip, 7z, tar, gzip2, iso, wim, rar, tar.gz,tar.bz2",parse_mode="html",buttons=buts)        
@@ -731,7 +731,7 @@ async def about_me(message):
     diff = Human_Format.human_readable_timedelta(diff)
 
     msg = (
-        "<b>name</b>: <code>tgtk</code>\n"
+        "<b>name</b>: <code>tortoolkit</code>\n"
         f"<b>version</b>: <code>{__version__}</code>\n"
         f"<b>telethon Version</b>: {telever}\n"
         f"<b>pyrogram Version</b>: {pyrover}\n"
@@ -741,7 +741,6 @@ async def about_me(message):
         "<b>direct link download engine:</b> <code>aria2</code> \n"
         "<b>upload Engine:</b> <code>rclone</code> \n"
         "<b>youtube download engine:</b> <code>youtube-dl</code>\n"
-        f"<b>rclone config: </b> <code>{rclone_cfg}</code>\n"
         f"<b>leech: </b> <code>{leen}</code>\n"
         f"<b>rclone: </b> <code>{rclone}</code>\n"
     )
@@ -752,13 +751,13 @@ async def about_me(message):
 async def set_thumb_cmd(e):
     thumb_msg = await e.get_reply_message()
     if thumb_msg is None:
-        await e.reply("reply to a photo or photo as a document.")
+        await e.reply("reply to any photo.")
         return
     
     if thumb_msg.document is not None or thumb_msg.photo is not None:
         value = await thumb_msg.download_media()
     else:
-        await e.reply("reply to a photo or photo as a document.")
+        await e.reply("reply to any photo.")
         return
 
     try:

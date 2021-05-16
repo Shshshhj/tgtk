@@ -424,7 +424,7 @@ async def errored_message(e, reason):
         await e.reply(msg, parse_mode="html")
 
 async def print_files(e,files,thash=None, path = None):
-    msg = f"<a href='tg://user?id={e.sender_id}'>completed.</a>"
+    msg = f"<a href='tg://user?id={e.sender_id}'>Requested files are uploaded 👇.</a>"
 
     if path is not None:
         size = 0
@@ -437,7 +437,7 @@ async def print_files(e,files,thash=None, path = None):
             torlog.warning("size calculation failed.")
         
         size = human_readable_bytes(size)
-        msg += f"uploaded size: {str(size)}\n\n"
+        msg += f"Uploaded size: {str(size)}\n\n"
     
     if len(files) == 0:
         return
